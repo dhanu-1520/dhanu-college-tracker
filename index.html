@@ -22,6 +22,7 @@
 
         <div class="topbar__actions">
           <button class="ghost-button">This week</button>
+          <button id="darkModeToggle" class="ghost-button dark-mode-btn" title="Toggle dark mode">🌙</button>
           <div class="avatar-wrap">
             <div class="avatar">D</div>
           </div>
@@ -54,11 +55,11 @@
             <div class="mini-metrics">
               <div>
                 <span class="label">Classes</span>
-                <strong>24/28</strong>
+                <strong id="classesCount">24/28</strong>
               </div>
               <div>
                 <span class="label">Absent</span>
-                <strong>4</strong>
+                <strong id="absentCount">4</strong>
               </div>
             </div>
           </div>
@@ -85,7 +86,10 @@
           <div class="panel timetable-panel">
             <div class="panel-header panel-header--spaced">
               <span>Class timetable</span>
-              <button class="ghost-button ghost-button--small">View full schedule</button>
+              <div style="display: flex; gap: 8px;">
+                <button class="ghost-button ghost-button--small" id="editModeToggle">Edit attendance</button>
+                <button class="ghost-button ghost-button--small" id="saveAttendance" style="display: none;">Save changes</button>
+              </div>
             </div>
 
             <div class="timetable-table-wrap">
@@ -122,6 +126,36 @@
           </div>
         </aside>
       </main>
+    </div>
+
+    <!-- Modal for editing attendance -->
+    <div id="attendanceModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Edit Attendance</h3>
+          <button class="modal-close" id="closeModal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="attendance-form">
+            <label>
+              <span>Attendance Status</span>
+              <select id="attendanceSelect">
+                <option value="present">Present (100%)</option>
+                <option value="leave">Leave (0%)</option>
+                <option value="custom">Custom percentage</option>
+              </select>
+            </label>
+            <label id="customLabel" style="display: none;">
+              <span>Enter percentage (0-100)</span>
+              <input type="number" id="customPercentage" min="0" max="100" />
+            </label>
+            <div class="modal-actions">
+              <button class="btn btn--primary" id="confirmAttendance">Update</button>
+              <button class="btn btn--secondary" id="cancelEdit">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="script.js"></script>
