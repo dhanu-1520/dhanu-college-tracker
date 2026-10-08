@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>College Tracker Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar__left">
+          <div class="brand-mark">CT</div>
+          <div>
+            <p class="eyebrow">Student workspace</p>
+            <h1>College Tracker</h1>
+          </div>
+        </div>
+
+        <div class="topbar__actions">
+          <button class="ghost-button">This week</button>
+          <div class="avatar-wrap">
+            <div class="avatar">D</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard">
+        <aside class="sidebar">
+          <div class="panel panel--compact">
+            <div class="panel-header">
+              <span>Overview</span>
+              <span class="badge badge--soft">+12.5%</span>
+            </div>
+            <div class="stat-list" id="overviewStats"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span>Attendance</span>
+              <span class="badge badge--success">Strong</span>
+            </div>
+            <div class="circle-card">
+              <div class="ring-progress">
+                <div class="ring-inner">
+                  <strong id="attendancePercent">87%</strong>
+                  <span>Overall</span>
+                </div>
+              </div>
+            </div>
+            <div class="mini-metrics">
+              <div>
+                <span class="label">Classes</span>
+                <strong>24/28</strong>
+              </div>
+              <div>
+                <span class="label">Absent</span>
+                <strong>4</strong>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="content-area">
+          <div class="panel hero-panel">
+            <div>
+              <p class="eyebrow eyebrow--dark">Today</p>
+              <h2>Tuesday, 9:00 AM</h2>
+            </div>
+            <div class="hero-panel__meta">
+              <div>
+                <span>Semester</span>
+                <strong>6th</strong>
+              </div>
+              <div>
+                <span>Next exam</span>
+                <strong>DBMS</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel timetable-panel">
+            <div class="panel-header panel-header--spaced">
+              <span>Class timetable</span>
+              <button class="ghost-button ghost-button--small">View full schedule</button>
+            </div>
+
+            <div class="timetable-table-wrap">
+              <table class="timetable-table">
+                <thead>
+                  <tr>
+                    <th>Time</th>
+                    <th>Course</th>
+                    <th>Faculty</th>
+                    <th>Room</th>
+                    <th>Attendance</th>
+                  </tr>
+                </thead>
+                <tbody id="timetableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <aside class="right-rail">
+          <div class="panel">
+            <div class="panel-header">
+              <span>Quick stats</span>
+            </div>
+            <div class="progress-stack" id="performanceBars"></div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span>Upcoming</span>
+              <span class="badge badge--soft">3 items</span>
+            </div>
+            <ul class="task-list" id="upcomingItems"></ul>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
